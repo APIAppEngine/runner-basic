@@ -1,0 +1,71 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <parent>
+        <groupId>com.mikenimer.apiserver</groupId>
+        <artifactId>apiserver</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.mikenimer.apiserver</groupId>
+    <artifactId>apiserver-runner</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>runner-basic</name>
+    <url>http://maven.apache.org</url>
+
+
+
+
+    <dependencies>
+        <dependency>
+            <groupId>com.mikenimer.apiserver</groupId>
+            <artifactId>service-core</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
+
+        <!-- Micro Services -->
+        <dependency>
+            <groupId>com.mikenimer.apiserver</groupId>
+            <artifactId>service-cache</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.mikenimer.apiserver</groupId>
+            <artifactId>service-images</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
+        <!--
+        <dependency>
+            <groupId>com.mikenimer.apiserver</groupId>
+            <artifactId>service-pdf</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+        -->
+
+
+
+
+        <!-- Spring Boot -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-remote-shell</artifactId>
+        </dependency>
+
+
+    </dependencies>
+
+
+    <build>
+        <finalName>apiserver-runner</finalName>
+    </build>
+</project>
