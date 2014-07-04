@@ -5,6 +5,7 @@
         <groupId>com.mikenimer.apiserver</groupId>
         <artifactId>apiserver</artifactId>
         <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../APIAppEngine/pom.xml</relativePath>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
@@ -24,6 +25,16 @@
             <groupId>com.mikenimer.apiserver</groupId>
             <artifactId>service-core</artifactId>
             <version>1.0.0-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>slf4j-api</artifactId>
+                    <groupId>org.slf4j</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>slf4j-log4j12</artifactId>
+                    <groupId>org.slf4j</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
 
@@ -40,13 +51,12 @@
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
-        <!--
         <dependency>
             <groupId>com.mikenimer.apiserver</groupId>
             <artifactId>service-pdf</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
-        -->
+
 
 
 
