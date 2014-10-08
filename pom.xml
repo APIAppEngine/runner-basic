@@ -2,8 +2,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <parent>
-        <groupId>com.mikenimer.apiserver</groupId>
-        <artifactId>apiserver</artifactId>
+        <groupId>com.mikenimer.apiappengine</groupId>
+        <artifactId>APIAppEngine</artifactId>
         <version>1.0.0-SNAPSHOT</version>
         <relativePath>../APIAppEngine/pom.xml</relativePath>
     </parent>
@@ -22,7 +22,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.mikenimer.apiserver</groupId>
+            <groupId>com.mikenimer.apiappengine</groupId>
             <artifactId>service-core</artifactId>
             <version>1.0.0-SNAPSHOT</version>
             <exclusions>
@@ -40,19 +40,19 @@
 
         <!-- Micro Services -->
         <dependency>
-            <groupId>com.mikenimer.apiserver</groupId>
+            <groupId>com.mikenimer.apiappengine</groupId>
             <artifactId>service-cache</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
-            <groupId>com.mikenimer.apiserver</groupId>
+            <groupId>com.mikenimer.apiappengine</groupId>
             <artifactId>service-images</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
-            <groupId>com.mikenimer.apiserver</groupId>
+            <groupId>com.mikenimer.apiappengine</groupId>
             <artifactId>service-pdf</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
@@ -77,5 +77,196 @@
 
     <build>
         <finalName>apiserver-runner</finalName>
+
+
+        <plugins>
+            <plugin>
+                <groupId>com.mikenimer.apiappengine.util</groupId>
+                <artifactId>swagger-plugin</artifactId>
+                <version>1.0.0-SNAPSHOT</version>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>swagger-springmvc-generator</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <outputDirectoryAndFile>${project.build.outputDirectory}/api-docs/docs/index.json</outputDirectoryAndFile>
+
+                    <apiListings>
+                        <apiListings>
+                            <apiVersion>1.0</apiVersion>
+                            <swaggerVersion>1.2</swaggerVersion>
+
+                            <info>
+                                <title>Cache Services</title>
+                                <description>A collection of different cache REST Services.</description>
+                                <termsOfServiceUrl></termsOfServiceUrl>
+                                <contact></contact>
+                                <license></license>
+                                <licenseUrl></licenseUrl>
+                            </info>
+
+                            <services>
+                                <service>
+                                    <name>Ping</name>
+                                    <description>Simple health check for this set of micro service.</description>
+                                    <basePath>/</basePath>
+                                    <basePackage>
+                                        <basePackage>apiserver.services.cache.controllers.TestCacheController</basePackage>
+                                    </basePackage>
+                                </service>
+                                <service>
+                                    <name>Document Cache</name>
+                                    <description>Support for document caching.</description>
+                                    <basePath>/</basePath>
+                                    <basePackage>
+                                        <basePackage>apiserver.services.cache.controllers.CacheDocumentController</basePackage>
+                                    </basePackage>
+                                </service>
+
+                            </services>
+                        </apiListings>
+
+
+                        <apiListings>
+                            <apiVersion>1.0</apiVersion>
+                            <swaggerVersion>1.2</swaggerVersion>
+
+                            <info>
+                                <title>Image Services</title>
+                                <description>A collection of different REST services to work with images.</description>
+                                <termsOfServiceUrl></termsOfServiceUrl>
+                                <contact></contact>
+                                <license></license>
+                                <licenseUrl></licenseUrl>
+                            </info>
+
+                            <services>
+                                <service>
+                                    <name>Ping</name>
+                                    <description>Simple health check for this set of micro service.</description>
+                                    <basePath>/</basePath>
+                                    <basePackage>
+                                        <basePackage>apiserver.services.images.controllers.ImageTestController</basePackage>
+                                    </basePackage>
+                                </service>
+                                <service>
+                                    <name>Information Services</name>
+                                    <description>Information about an image.</description>
+                                    <basePath>/</basePath>
+                                    <basePackage>
+                                        <basePackage>apiserver.services.images.controllers.ImageController</basePackage>
+                                    </basePackage>
+                                </service>
+                                <service>
+                                    <name>Image Filter Services</name>
+                                    <description>Various image filters.</description>
+                                    <basePath>/</basePath>
+                                    <basePackage>
+                                        <basePackage>apiserver.services.images.controllers.filters</basePackage>
+                                    </basePackage>
+                                </service>
+                                <service>
+                                    <name>Image Manipulation Services</name>
+                                    <description>Various image filters.</description>
+                                    <basePath>/</basePath>
+                                    <basePackage>
+                                        <basePackage>apiserver.services.images.controllers.manipulations</basePackage>
+                                    </basePackage>
+                                </service>
+                                <service>
+                                    <name>Image Metadata Services</name>
+                                    <description>Various image filters.</description>
+                                    <basePath>/</basePath>
+                                    <basePackage>
+                                        <basePackage>apiserver.services.images.controllers.MetadataController</basePackage>
+                                    </basePackage>
+                                </service>
+                            </services>
+                        </apiListings>
+
+
+                        <apiListings>
+                            <apiVersion>1.0</apiVersion>
+                            <swaggerVersion>1.2</swaggerVersion>
+
+                            <info>
+                                <title>PDF Services</title>
+                                <description>A collection of different REST services to generate and modify PDF files.</description>
+                                <termsOfServiceUrl></termsOfServiceUrl>
+                                <contact></contact>
+                                <license></license>
+                                <licenseUrl></licenseUrl>
+                            </info>
+
+                            <services>
+                                <service>
+                                    <name>Ping</name>
+                                    <description>Simple health check for this set of micro service.</description>
+                                    <basePath>/</basePath>
+                                    <basePackage>
+                                        <basePackage>apiserver.services.pdf.controllers.PdfTestController</basePackage>
+                                    </basePackage>
+                                </service>
+                                <service>
+                                    <name>Conversion Services</name>
+                                    <description>Convert different formats to PDF.</description>
+                                    <basePath>/</basePath>
+                                    <basePackage>
+                                        <basePackage>apiserver.services.pdf.controllers.ConvertHtmlController</basePackage>
+                                        <basePackage>apiserver.services.pdf.controllers.ConvertUrlController</basePackage>
+                                    </basePackage>
+                                </service>
+                                <service>
+                                    <name>Form Services</name>
+                                    <description>Work with PDF forms.</description>
+                                    <basePath>/</basePath>
+                                    <basePackage>
+                                        <basePackage>apiserver.services.pdf.controllers.FormController</basePackage>
+                                    </basePackage>
+                                </service>
+                                <service>
+                                    <name>Information</name>
+                                    <description>Information about PDF files</description>
+                                    <basePath>/</basePath>
+                                    <basePackage>
+                                        <basePackage>apiserver.services.pdf.controllers.InfoController</basePackage>
+                                        <basePackage>apiserver.services.pdf.controllers.ExtractController</basePackage>
+                                        <basePackage>apiserver.services.pdf.controllers.ThumbnailController</basePackage>
+                                    </basePackage>
+                                </service>
+                                <service>
+                                    <name>Modification Services</name>
+                                    <description>Various modifications to pdf files.</description>
+                                    <basePath>/</basePath>
+                                    <basePackage>
+                                        <basePackage>apiserver.services.pdf.controllers.DDXController</basePackage>
+                                        <basePackage>apiserver.services.pdf.controllers.HeaderFooterController</basePackage>
+                                        <basePackage>apiserver.services.pdf.controllers.MergeController</basePackage>
+                                        <basePackage>apiserver.services.pdf.controllers.OptimizeController</basePackage>
+                                        <basePackage>apiserver.services.pdf.controllers.PagesController</basePackage>
+                                        <basePackage>apiserver.services.pdf.controllers.TransformerController</basePackage>
+                                        <basePackage>apiserver.services.pdf.controllers.WatermarkController</basePackage>
+                                    </basePackage>
+                                </service>
+                                <service>
+                                    <name>Security Services</name>
+                                    <description>Secure PDF files</description>
+                                    <basePath>/</basePath>
+                                    <basePackage>
+                                        <basePackage>apiserver.services.pdf.controllers.ProtectController</basePackage>
+                                    </basePackage>
+                                </service>
+                            </services>
+                        </apiListings>
+                    </apiListings>
+
+                </configuration>
+
+            </plugin>
+        </plugins>
     </build>
 </project>
