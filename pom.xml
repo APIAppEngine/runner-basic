@@ -251,7 +251,7 @@
                                     <basePath>/</basePath>
                                     <basePackage>
                                         <basePackage>apiserver.services.pdf.controllers.DDXController</basePackage>
-                                        <basePackage>apiserver.services.pdf.controllers.HeaderFooterController</basePackage>
+                                        <basePackage>apiserver.services.pdf.controllers.HeaderController</basePackage>
                                         <basePackage>apiserver.services.pdf.controllers.MergeController</basePackage>
                                         <basePackage>apiserver.services.pdf.controllers.OptimizeController</basePackage>
                                         <basePackage>apiserver.services.pdf.controllers.PagesController</basePackage>
